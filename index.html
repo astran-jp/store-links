@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <base target="_top">
-  </head>
-  <body>
+</head>
 
-  <form action='https://apps.apple.com/ja/app/%E3%83%A2%E3%83%81%E3%82%BF%E3%83%B3-%E4%B8%AD%E5%AD%A6-%E9%AB%98%E6%A0%A1%E8%8B%B1%E8%AA%9E-%E8%8B%B1%E6%A4%9C-toeic-%E3%81%AA%E3%81%A9%E3%81%AE%E8%8B%B1%E5%8D%98%E8%AA%9E/id6451048056' method='GET' id='ios'>
-  </form>
-  <form action='https://play.google.com/store/apps/details?id=jp.astran.motitan_production' method='GET' id='android'>
-  </form>  
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-  $("#android").submit();
-});
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ((navigator.userAgent.toLowerCase().indexOf("android") > -1)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=jp.astran.motitan_production';
+            } else {
+                window.location.href = 'https://apps.apple.com/ja/app/%E3%83%A2%E3%83%81%E3%82%BF%E3%83%B3-%E4%B8%AD%E5%AD%A6-%E9%AB%98%E6%A0%A1%E8%8B%B1%E8%AA%9E-%E8%8B%B1%E6%A4%9C-toeic-%E3%81%AA%E3%81%A9%E3%81%AE%E8%8B%B1%E5%8D%98%E8%AA%9E/id6451048056';
+            }
+        });
+    </script>
 </body>
+
 </html>
