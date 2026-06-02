@@ -30,21 +30,6 @@
             --accent:    #01875f;
             --accent-h:  #00674a;
             --icon-edge: rgba(0,0,0,0.07);
-            --nav-active:#01875f;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg:        #1f1f1f;
-                --fg:        #e8eaed;
-                --fg-2:      #9aa0a6;
-                --hairline:  #2e2f31;
-                --hover:     #2a2b2d;
-                --cover-bg:  #303134;
-                --accent:    #00c785;
-                --accent-h:  #4ddaa3;
-                --icon-edge: rgba(255,255,255,0.10);
-                --nav-active:#00c785;
-            }
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -121,7 +106,6 @@
             transition: background .15s ease, transform .1s ease;
             box-shadow: 0 1px 2px rgba(0,0,0,0.18);
         }
-        @media (prefers-color-scheme: dark) { .update-btn { color: #06281b; } }
         .card:active .update-btn { background: var(--accent-h); transform: scale(.97); }
         @media (hover:hover) { .update-btn:hover { background: var(--accent-h); } }
     </style>
