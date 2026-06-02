@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <base target="_top">
+    <title>Astran - Google Play のアプリ</title>
+
+    <!-- =========================================================
+         フィーチャーグラフィックの差し替えはここだけ編集してください。
+         Play Console にアップ済みの画像（1024×500）をこのHTMLと同じ
+         場所に置き、ファイル名（または絶対URL）を指定します。
+         空文字 '' のままにすると、暫定でスクリーンショットを表示します。
+    ========================================================== -->
+    <script>
+        window.FEATURE_GRAPHICS = {
+            motitan: 'https://play-lh.googleusercontent.com/N9ZsQzNfc-SVjbxuetnMFvxKF-ckPD78WUGgCPno09_FAdyWqx1QCXiCbOFz5j6L-HCIqlcV4eJDn05Tvg43=w832-h470-rw',
+            motispi: 'https://play-lh.googleusercontent.com/tInM0nIU4aa9EaYxBz46RMpc9BG3gU7aYye8EKUs_sy_8kcWtL-Jt6orMP8CuSte2Gpw07vk6hFC4qfnQ0Pu4w=w832-h470-rw'
+        };
+    </script>
+
+    <style>
+        :root {
+            --bg:        #ffffff;
+            --fg:        #202124;
+            --fg-2:      #5f6368;
+            --hairline:  #e8eaed;
+            --hover:     #f5f6f7;
+            --cover-bg:  #f1f3f4;
+            --accent:    #01875f;
+            --accent-h:  #00674a;
+            --icon-edge: rgba(0,0,0,0.07);
+            --nav-active:#01875f;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg:        #1f1f1f;
+                --fg:        #e8eaed;
+                --fg-2:      #9aa0a6;
+                --hairline:  #2e2f31;
+                --hover:     #2a2b2d;
+                --cover-bg:  #303134;
+                --accent:    #00c785;
+                --accent-h:  #4ddaa3;
+                --icon-edge: rgba(255,255,255,0.10);
+                --nav-active:#00c785;
+            }
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        html, body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont,
+                         "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 本体 ===== */
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 26px 24px 64px; }
+        @media (max-width: 640px) { .wrap { padding: 18px 14px 48px; } }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 8px;
+        }
+
+        /* ===== アプリカード ===== */
+        .card {
+            display: block; text-decoration: none; color: inherit;
+            border-radius: 12px; padding: 14px;
+            transition: background .15s ease;
+            opacity: 0; transform: translateY(10px);
+            animation: rise .5s cubic-bezier(.22,.61,.36,1) forwards;
+        }
+        .card:nth-child(1) { animation-delay: .04s; }
+        .card:nth-child(2) { animation-delay: .12s; }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+        @media (hover:hover) { .card:hover { background: var(--hover); } }
+        .card:active { background: var(--hover); }
+
+        .cover {
+            width: 100%; aspect-ratio: 832 / 470;
+            border-radius: 12px; overflow: hidden;
+            background: var(--cover-bg);
+            box-shadow: inset 0 0 0 1px var(--icon-edge);
+        }
+        .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .row { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
+        .icon {
+            flex: 0 0 auto;
+            width: 48px; height: 48px; border-radius: 10px;
+            background-size: cover; background-position: center;
+            box-shadow: inset 0 0 0 1px var(--icon-edge);
+        }
+        .meta { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+        .meta .name {
+            display: block; max-width: 100%;
+            font-size: 15px; font-weight: 500; line-height: 1.3;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .meta .dev { font-size: 13px; color: var(--fg-2); margin-top: 3px; }
+        .meta .rating {
+            display: flex; align-items: center; gap: 4px;
+            font-size: 12px; color: var(--fg-2); margin-top: 4px;
+        }
+        .meta .rating svg { width: 11px; height: 11px; fill: var(--fg-2); }
+
+        /* Google Play風アップデートボタン（ご要望により追加） */
+        .update-btn {
+            flex: 0 0 auto;
+            font-size: 14px; font-weight: 500; white-space: nowrap;
+            color: #fff; background: var(--accent);
+            border: none; border-radius: 20px;
+            padding: 9px 20px; cursor: pointer;
+            text-decoration: none;
+            transition: background .15s ease, transform .1s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+        }
+        @media (prefers-color-scheme: dark) { .update-btn { color: #06281b; } }
+        .card:active .update-btn { background: var(--accent-h); transform: scale(.97); }
+        @media (hover:hover) { .update-btn:hover { background: var(--accent-h); } }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <div class="grid">
+            <!-- モチタン -->
+            <a class="card" href="https://play.google.com/store/apps/details?id=jp.astran.motitan_production">
+                <div class="cover">
+                    <img id="fg-motitan" loading="lazy" alt="英単語アプリ モチタン"
+                         src="https://play-lh.googleusercontent.com/N9ZsQzNfc-SVjbxuetnMFvxKF-ckPD78WUGgCPno09_FAdyWqx1QCXiCbOFz5j6L-HCIqlcV4eJDn05Tvg43=w832-h470-rw">
+                </div>
+                <div class="row">
+                    <span class="icon" style="background-image:url('https://play-lh.googleusercontent.com/tHH4jw3bEubr1lULJGGtVeseKiLG4Rzd-v591BHPcfSQlqoMv21tqrPGszVfcoMvjK5GTODXHOcZdlf4uKbR=s128')"></span>
+                    <span class="meta">
+                        <span class="name">英単語アプリ モチタン-TOEIC/英検/中学/高校/小学生</span>
+                    </span>
+                    <span class="update-btn">アップデート</span>
+                </div>
+            </a>
+
+            <!-- モチスピ -->
+            <a class="card" href="https://play.google.com/store/apps/details?id=jp.astran.motispi_production">
+                <div class="cover">
+                    <img id="fg-motispi" loading="lazy" alt="AI英会話モチスピ"
+                         src="https://play-lh.googleusercontent.com/tInM0nIU4aa9EaYxBz46RMpc9BG3gU7aYye8EKUs_sy_8kcWtL-Jt6orMP8CuSte2Gpw07vk6hFC4qfnQ0Pu4w=w832-h470-rw">
+                </div>
+                <div class="row">
+                    <span class="icon" style="background-image:url('https://play-lh.googleusercontent.com/yOkUaZqR2qSOqtd8VjYtJ6wd38NCFZayFKlPQNeJi3ago9MSedr_7loQ4k5Oo5pIQZzbTN2aojhkZ7ZtBzbpvVs=s128')"></span>
+                    <span class="meta">
+                        <span class="name">AI英会話モチスピ - スピーキング/リスニング/英検二次</span>
+                    </span>
+                    <span class="update-btn">アップデート</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // 冒頭の FEATURE_GRAPHICS が設定されていれば、実フィーチャーグラフィックに差し替え
+        (function () {
+            var fg = window.FEATURE_GRAPHICS || {};
+            if (fg.motitan) document.getElementById('fg-motitan').src = fg.motitan;
+            if (fg.motispi) document.getElementById('fg-motispi').src = fg.motispi;
+        })();
+    </script>
+</body>
+</html>
