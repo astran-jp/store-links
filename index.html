@@ -6,10 +6,11 @@
     <base target="_top">
     <title>アプリ一覧</title>
 
-    <!-- OS判定：描画前に表示する側を確定（Android以外はすべてiOS表示） -->
+    <!-- OS判定：描画前に表示する側を確定（?os=android / ?os=ios を優先。無ければUAで判定し、Android以外はすべてiOS表示） -->
     <script>
         (function () {
-            var isAndroid = /android/i.test(navigator.userAgent);
+            var os = new URLSearchParams(location.search).get('os');
+            var isAndroid = os === 'android' || (os !== 'ios' && /android/i.test(navigator.userAgent));
             document.documentElement.classList.add(isAndroid ? 'is-android' : 'is-ios');
         })();
     </script>
